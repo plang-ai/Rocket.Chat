@@ -32,11 +32,7 @@ export const sendGCM = function({ userTokens, notification, _replaceToken, _remo
 		data.image = notification.image;
 	}
 
-	if (notification.android_channel_id != null) {
-		data.android_channel_id = notification.android_channel_id;
-	} else {
-		logger.debug('For devices running Android 8.0 or later you are required to provide an android_channel_id. See https://github.com/raix/push/issues/341 for more info');
-	}
+	data.android_channel_id = 'General';
 
 	// Set extra details
 	if (notification.badge != null) {
